@@ -13,10 +13,6 @@ for j in range (1, 11) :
         
     # if cap.isOpened:
 
-
-
-
-
     while(cap.isOpened()):
             ret, frame = cap.read()
             # if ret==True:
@@ -30,15 +26,17 @@ for j in range (1, 11) :
             if ret == False :
                 break
 
-            cv2.imshow('frame', frame)
-            out.write(frame)
+            for k in range (1, 11) :
+                cv2.imshow('frame', frame)
+                out.write(frame)
 
-            if cv2.waitKey(1) & 0xFF == ord('q') :
-                break
+                if cv2.waitKey(1) & 0xFF == ord('q') :
+                    break
 
+    cap.release()
     out.release()
     # else :
     # print("Can't open Video")
 
-    cap.release()
+    
     cv2.destroyAllWindows()
